@@ -22,7 +22,7 @@ handTrack.startVideo(video).then((status) => {
 			(stream) => {
 				video.srcObject = stream;
 				//Run Out Detection
-				setInterval(runDetection, 100);
+				setInterval(runDetection, 300);
 			},
 			(err) => console.log(err)
 		);
