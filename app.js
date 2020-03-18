@@ -14,3 +14,22 @@ navigator.getUserMedia =
 const video = document.querySelector('#video');
 const audio = document.querySelector('#audio');
 let model;
+
+handTrack.startVideo(video).then((status) => {
+	if (status) {
+		navigator.getUserMedia({ video: {} }, (stream) => {
+			video.srcObject = stream;
+			//Run Out Detection
+		});
+	}
+});
+
+function runDetection() {
+	model.detect(video).then((predictions) => {
+		console.log(predictions);
+	});
+}
+
+handTrack.load(modelParams).then((lmodel) => {
+	model = lmodel;
+});
